@@ -11,15 +11,36 @@ Product.init(
   {
     // define columns
     id: {
-      type: DataTypes.INTEGER,
-      allowNull: false, 
-      primaryKey: true, 
-      autoIncrement: true,
-    }, 
-    categoryName: {
-      type: DataTypes.STRING, 
-      allowNull: false,
-    }
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      productName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      }, 
+      price: {
+        type: DataTypes.DECIMAL, 
+        allowNull: false, 
+        validates: {
+          // value is a decimal 
+        }
+      }, 
+      stock: {
+        type: DataTypes.INTEGER, 
+        allowNull: false, 
+        // set default value to 10
+        validates: {
+          // value is numeric
+        }
+      }, 
+      categoryId: {
+        type: DataTypes.INTEGER,
+        // references Category model's id 
+      }
+
+
   },
   {
     sequelize,
