@@ -7,14 +7,12 @@
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Visuals](#visuals)
-5. [License](#license)
-6. [Contributions](#contributions)
-7. [Tests](#tests)
-8. [Questions](#questions)
+5. [Technologies](#contributions)
+6. [Questions](#questions)
 
 ---
 ## Description
-This is an application created using SQL, sequelize, Insomnia, and Express.
+This is an application created using SQL, sequelize, Insomnia, and Express. The application stores seed data with products, their prices, categories, tags, and ids and the information can be accessed using Insomnia. 
 
 ---
 ## Installation
@@ -23,6 +21,10 @@ This is an application created using SQL, sequelize, Insomnia, and Express.
 
 ---
 ## Usage
+    mysql
+        SOURCE db/schema.sql
+        exit
+    npm run seed
     npm start
 
 ---
@@ -31,16 +33,11 @@ This is an application created using SQL, sequelize, Insomnia, and Express.
 
 
 ---
-## License
-MIT
-
----
-## Contrbutions
-
-
----
-## Tests
-    
+## Technologies
+* Express
+* SQL
+* Insomnia
+* Sequelize
 
 ---
 ## Questions

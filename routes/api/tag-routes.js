@@ -1,52 +1,57 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
-// The `/api/tags` endpoint
-// SUCCESSFUL
+// Get All Tags 
 router.get('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
       include: [{ model: Product }]
     });
-    res.status(200).json(tagData);
-  } catch (err) {
-    res.status(500).json(err);
-    console.log(err);
-  }
-});
-
-// SUCCESSFUL
-router.get('/:id', async (req, res) => {
-  try {
-    // finds by the primary key
-    const tagData = await Tag.findByPk(req.params.id, {
-      include: [{ model: Product }]
-    });
     if (!tagData) {
-      res.status(404).json({ message: 'No user with this id!' });
+      res.status(404).json({
+        message: 'No Tags found.'
+      });
       return;
     }
     res.status(200).json(tagData);
   } catch (err) {
-    // server error
-    console.log(err)
     res.status(500).json(err);
   }
 });
 
-// successful!
-router.post('/', async(req, res) => {
+// Get Tags by ID 
+router.get('/:id', async (req, res) => {
   try {
-    // pass it the req.body
-    const tagData = await Tag.create(req.body);
+    const tagData = await Tag.findByPk(req.params.id, {
+      include: [{ model: Product }]
+    });
+    if (!tagData) {
+      res.status(404).json({ message: 'No tag found with this id.' });
+      return;
+    }
     res.status(200).json(tagData);
   } catch (err) {
-    // when in doubt use 400 error
+    res.status(500).json(err);
+  }
+});
+
+// Create Tags
+router.post('/', async(req, res) => {
+  try {
+    const tagData = await Tag.create(req.body);
+    if (!tagData) {
+      res.status(404).json({
+        message: 'Tag was not created.'
+      });
+      return;
+    }
+    res.status(200).json(tagData);
+  } catch (err) {
     res.status(400).json(err);
   }
   });
 
-// successful
+// Update Tags by ID 
 router.put('/:id', async (req, res) => {
 try {
   const tagData = await Tag.update(req.body, {
@@ -54,7 +59,7 @@ try {
     },
   });
   if (!tagData[0]){
-    res.status(404).json({message: 'No tag ID.'})
+    res.status(404).json({message: 'No tag found with this ID.'})
     return;
   }
   res.status(200).json(tagData);
@@ -63,25 +68,20 @@ try {
 }
 });
 
-
-
-// SUCCESSFUL
+// Delete Tags by ID 
 router.delete('/:id', async (req, res) => {
-  // delete on tag by its `id` value
  try {
    const tagData = await Tag.destroy({
      where: { id: req.params.id }
    })
-
    if (!tagData) {
      res.status(404).json({
-       message: 'No Product found with that ID.'
+       message: 'No Tag found with this ID.'
      });
      return;
    }
    res.status(200).json(tagData);
  } catch (err) {
-   console.log(err);
    res.status(500).json(err);
  }
 });
