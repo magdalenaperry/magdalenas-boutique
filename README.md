@@ -18,11 +18,12 @@ This is an application created using SQL, sequelize, Insomnia, and Express.
 
 ---
 ## Installation
+    npm install
     
 
 ---
 ## Usage
-
+    npm start
 
 ---
 ## Visuals
