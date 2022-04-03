@@ -29,9 +29,9 @@ This is an application created using SQL, sequelize, Insomnia, and Express. The 
 
 ---
 ## Visuals
-![Categories Insomnia Demo Link](https://youtu.be/J5TiRAVo2QE)
-![Products Insomnia Demo Link](https://youtu.be/SProRou64YA)
-![Tags Insomnia Demo Link](https://youtu.be/_1KJan45WrQ)
+[Categories Insomnia Demo Link](https://youtu.be/J5TiRAVo2QE)
+[Products Insomnia Demo Link](https://youtu.be/SProRou64YA)
+[Tags Insomnia Demo Link](https://youtu.be/_1KJan45WrQ)
 
 
 ---
