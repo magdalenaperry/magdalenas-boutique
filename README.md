@@ -33,7 +33,7 @@ This is an application created using SQL, sequelize, Insomnia, and Express. The 
 
 [Tags Insomnia Demo Link](https://youtu.be/SProRou64YA)
 
-[Products Insomnia Demo Link](https://youtu.be/ToAzMZO0Ucc)
+[Products Insomnia Demo Link](https://youtu.be/X-y9ByTSpXY)
 
 
 ---
